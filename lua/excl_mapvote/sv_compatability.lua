@@ -1,7 +1,7 @@
 -- Here we detect which gamemode the server is running, and then adapt to this gamemode.
 -- If you are using a remake of a gamemode or an unofficial version, you should make sure your gamemode is compatable, and if not add compatabily stuff in this file.
 
-if JB then 
+if JB then
 	-- Gamemode is the official Jail Break, version 4+
 	print("EXCL MAPVOTE: Loading JB-compat.")
 	
@@ -16,7 +16,7 @@ if JB then
 		end
 	end);
 
-elseif string.find(string.lower(GAMEMODE.Name),"terrorist town",1,false) then 
+elseif string.find(string.lower(GAMEMODE.Name),"terrorist town",1,false) then
 	-- Gamemode is the official TTT, version 2+
 	print("EXCL MAPVOTE: Loading TTT-compat.")
 
@@ -36,6 +36,20 @@ elseif string.find(string.lower(GAMEMODE.Name),"terrorist town",1,false) then
 		oldSimple(time,func,...);
 	end
 
+elseif string.find(string.lower(GAMEMODE.Name),"zombie survival",1,false) then
+	-- Gamemode is JetBoom's zombie survival
+	print("EXCL MAPVOTE: Loading ZS-compat.")
+	
+	hook.Add("LoadNextMap","EXCL_MAPVOTE.Compat.StartVote", function()
+		EXCL_MAPVOTE:Start()
+		return true
+	end)
 
-
+	hook.Add("EXCL_MAPVOTE.Finish","EXC_MAPVOTE.Compat.Finish",function(winner)
+		if winner == game.GetMap() then
+			--game.ConsoleCommand("changelevel "..winner.."\n")
+			gamemode.Call("RestartRound")
+		end
+	end)
+	
 end
