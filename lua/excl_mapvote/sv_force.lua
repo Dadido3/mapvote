@@ -16,7 +16,7 @@ local function doRTV(p)
 		return
 	end
 
-	local needed = math.Round(#player.GetAll()*EXCL_MAPVOTE.PlayerPercentage);
+	local needed = math.Round(#player.GetHumans()*EXCL_MAPVOTE.PlayerPercentage);
 
 	if not voters[p:UniqueID()] then
 		voters[p:UniqueID()] = true;
