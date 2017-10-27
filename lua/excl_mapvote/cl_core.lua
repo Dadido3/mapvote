@@ -101,7 +101,7 @@ function EXCL_MAPVOTE:Open(maps)
 
 			if not IsValid(tiles[i]) then ErrorNoHalt("Failed to create MapVote tile!\n") return end
 
-			tiles[i]:SetMap(maps[i+1]);
+			tiles[i]:SetMap(maps[i+1].map, maps[i+1].bots);
 			tiles[i]:SetPos( x_base + (i%4) * (224 + margin), y_base + (i < 4 and 0 or 224 + margin) );
 			tiles[i]:Expand(addTime+CurTime());
 

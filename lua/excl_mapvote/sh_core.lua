@@ -4,8 +4,11 @@ local typePrefixes={
 	"jail_",
 	"jb_",
 	"ttt_",
-	"cs_",
-	"de_"
+	--"cs_",
+	--"de_",
+	"zs_",
+	"ze_",
+	"zm_"
 }
 
 local parseCache={};

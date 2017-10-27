@@ -50,7 +50,7 @@ function EXCL_MAPVOTE:Stop()
 	local winner;
 	if #most < 1 then
 		Msg("Could not select winning map!\nPicking random map.\n");
-		winner=table.Random(EXCL_MAPVOTE.MapSelection);
+		winner = table.Random(EXCL_MAPVOTE.MapSelection).map;
 	else
 		winner = ( table.Random(most) )["map"];
 	end
@@ -63,13 +63,13 @@ function EXCL_MAPVOTE:Stop()
 
 	hook.Call("EXCL_MAPVOTE.DoFinish",GAMEMODE,winner);
 
-	if winner==game.GetMap() then
-		for k,v in pairs(EXCL_MAPVOTE.MapSelection)do
-			if v == winner then
-				table.remove(EXCL_MAPVOTE.MapSelection,k);
+	if winner == game.GetMap() then
+		for k,v in pairs(EXCL_MAPVOTE.MapSelection) do
+			if v.map == winner then
+				table.remove(EXCL_MAPVOTE.MapSelection, k);
 			end
 		end
-		EXCL_MAPVOTE.SupressChange=true;
+		EXCL_MAPVOTE.SupressChange = true;
 	end
 
 	timer.Simple(4,function()

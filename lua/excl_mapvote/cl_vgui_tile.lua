@@ -140,9 +140,10 @@ function PNL:OnMouseReleased()
 		net.SendToServer();
 	end
 end
-function PNL:SetMap(str)
+function PNL:SetMap(str, bots)
 	self._map=str;
-	self._mapParsed=EXCL_MAPVOTE.ParseMapName(str);
+	self._mapParsed=EXCL_MAPVOTE.ParseMapName(str)
+	if bots then self._mapParsed = self._mapParsed .. " [Bots]" end
 
 	if not IsValid(self._HTML) and file.Exists("materials/excl_mapvote/maps/"..str..".png","GAME") then
 		self._icon=Material("excl_mapvote/maps/"..str..".png","smooth");
