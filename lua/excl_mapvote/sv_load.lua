@@ -69,10 +69,13 @@ if EXCL_MAPVOTE.MapLoader == "fs" then
 		else
 			map = normalizeMapName(game.GetMap())
 		end
-		-- Check if AzBot is active on this map
+		-- Check if AzBot or D3bot bots are available
 		local bots = false
 		if AzBot and AzBot.CheckMapNavMesh then
 			bots = AzBot.CheckMapNavMesh(map) or false
+		end
+		if D3bot and D3bot.CheckMapNavMesh then
+			bots = D3bot.CheckMapNavMesh(map) or false
 		end
 		table.insert(EXCL_MAPVOTE.MapSelection, {map = map, bots = bots})
 	end
