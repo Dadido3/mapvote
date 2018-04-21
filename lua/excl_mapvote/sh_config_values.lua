@@ -11,7 +11,7 @@ EXCL_MAPVOTE.Title 					= "MAPVOTE"
 
 -- Table of facts
 EXCL_MAPVOTE.RandomFacts 			= {
-	"The owner of this server did not set up any custom facts.",
+	"The Mitochondria is the Powerhouse of the Cell",
 	"You can click a tile to vote.",
 	"Avatars in tiles can stack."
 }
@@ -26,7 +26,7 @@ EXCL_MAPVOTE.UseInnerZoomEffect 	= true
 EXCL_MAPVOTE.EffectSpeed			= 5.0
 
 -- Vote time in seconds
-EXCL_MAPVOTE.VoteTime				= 30.0 --seconds
+EXCL_MAPVOTE.VoteTime				= 20.0 --seconds
 
 -- Use the 'ripple' effect when clicking a tile
 EXCL_MAPVOTE.UseRippleEffect 		= true
@@ -44,10 +44,10 @@ EXCL_MAPVOTE.MapLoader				= "fs";
 EXCL_MAPVOTE.PlayerPercentage		= 65/100;
 
 -- The time that has to pass before people can vote to start th emapvote using the !mapvote command. Use this to prevent assholes from typing rtv right after the map changes.
-EXCL_MAPVOTE.ForceVoteWaitTime		= 10; --seconds
+EXCL_MAPVOTE.ForceVoteWaitTime		= 60; --seconds
 
 -- URL to fetch icons from. Replace where the mapname should go with %s. Ideally, the icons on this URL are 222x222 pixels.
-EXCL_MAPVOTE.IconsURL				= nil; -- Example value: "http://image.www.gametracker.com/images/maps/160x120/garrysmod/%s.jpg"
+EXCL_MAPVOTE.IconsURL				= "http://image.www.gametracker.com/images/maps/160x120/garrysmod/%s.jpg"; -- Example value: "http://image.www.gametracker.com/images/maps/160x120/garrysmod/%s.jpg"
 
 -- Allow extend current map?
 EXCL_MAPVOTE.AllowExtend			= true;
